@@ -1,0 +1,69 @@
+---
+title: "1 darbas"
+author: "Greta Lauruskaite"
+date: '2016 m rugsejis 16 d'
+output: html_document
+---
+
+##Why The R Programming Language Is Good For Business
+
+With terabytes of data at hand, every business is trying to figure out the best way to understand information about their customers and themselves. But simply using Excel pivot tables to analyze such quantities of information is absurd, so many companies use the commercially available tool SAS to cull business intelligence.
+
+But SAS is no match for the open-source language that pioneering data scientists use in academia, which is simply known as R. The R programming language leans more frequently to the cutting edge of data science, giving businesses the latest data analysis tools. The problem: With loose standards and scores of diverse contributors, it is shaky ground for business. Will that ever change?
+
+##THE R EVANGELISTS
+
+At least one company thinks R is ready for commercial prime time. Like RedHat is to Linux and Cloudera is to Hadoop, Revolution Analytics is to the R language in the commercial world. Several years ago, David Smith, chief community officer at Revolution Analytics, noticed that a lot of academics and students used R but saw less usage in industry. "At the time, there was no company there to support R, provide expertise around R, or provide any kind of commercial backing for R. So that’s how Revolution Analytics was founded," says Smith.
+
+To call Smith an R enthusiast is an understatement. He is a co-author of the programming manual An Introduction to R that comes with the open source R distribution. And he has a team of like-minded R evangelists working with him, who keep any mention of R in the business world on their radar, while also publishing R-related news on the company's blog and giving educational workshops to other companies. He is an example of a curious breed of creative entrepreneur that only exists in the tech sector: someone doing great work on a free, open source resource, and in so doing, creating a commercial opportunity for themselves on the flip side.
+
+"I always look out for journal articles where R is used. I hear back from customers. And whenever a good visualization is used, there’s a good chance that it was created in R, so I can always trace back to the author. I’m always on social media, so whenever I see a reference to R, I usually shake down to [the team]," Smith says.
+
+All of R’s programming libraries are free, but Revolution Analytics makes its business from its service packages, which give customers access to the libraries the company develops in-house. These commercial libraries are suitable for corporate customers who frequently deal with large amounts of data, in the terabyte range. Not exclusively limited to R, Revolution Analytics also creates user interfaces and algorithms, frequently using C++ to write its algorithms.
+
+Some of the libraries the company develops eventually do become open source, like the RHadoop project’s libraries. RHadoop’s free libraries enable users to leverage the data-computing environment Hadoop to manage their data. But if a user does not have access to Hadoop, Revolution Analytics still steps in and provides its services.
+
+##DEALING WITH TONS OF BUSINESS DATA
+
+Here's what their packages actually do. One, ScaleR, helps businesses go through all of their data by scaling it to work on parallel processors. Using standard R packages, machines will run out of memory when dealing with such large amounts of data, but ScaleR repurposes the data to process chunks of it on different servers simultaneously. Smith calls this parallel processing algorithm its "secret sauce."
+
+DataSong, a marketing analytics company and one of Revolution Analytics’ clients, uses this parallel processing power to split up its large customer datasets across nodes in Hadoop.
+
+"Base R didn’t have big enough muscle," says Tess Nesbitt, director of analytics at DataSong. Using Revolution Analytics’ packages, Nesbitt is able to do more sophisticated statistical analyses and interim checks on the data during processing than using open-source R alone.
+
+"Our models have actually benefitted from it because not only are we allowed to use more data now, we can take more passes at the data and fine-tune our models and get more statistically advanced compared to what we used to do, just kicking off a logistic regression, letting it run for a day and hoping it didn’t crash," says Nesbitt.
+
+At DataSong, Nesbitt does something called feature engineering. She creates a bunch of variables about a retail customer to essentially create a quantitative model. She might have 30 million rows of data for 60 variables, which she can now run in about 10 minutes, using commercial R packages. She says the method beats using SAS.
+
+Although Nesbitt started her career at DataSong using SAS, the company eventually moved over to R. She says, "I’ve always been a fan of R since my grad school days."
+
+##COOL GRAPHICS
+
+At Facebook, the data science team’s data visualizations in R give it the best overview of what kind of data it is dealing with. The data can range from something like News Feed numbers to correlations with the amount of Facebook friends a user has. Although these packages are not commercial, Revolution Analytics has kept tabs on Facebook’s R usage for some time.
+
+"Generally, we use R to move fast when we get a new data set," says Solomon Messing, data scientist at Facebook. "With R, we don’t need to develop custom tools or write a bunch of code. Instead, we can just go about cleaning and exploring the data."
+
+Messing and the other Facebook data scientists regularly use open-source R packages from Hadley Wickham, chief scientist at RStudio. Wickham’s packages, like ggplot2, dplyr, plyr, and reshape, allow the team to explore new data through custom visualizations.
+
+![*Cool graphics*](https://b.fastcompany.net/multisite_files/fastcompany/inline/2014/05/3030063-inline-fb2-copy.png)
+
+![*Cool graphics*] (https://b.fastcompany.net/multisite_files/fastcompany/inline/2014/05/3030063-inline-screenshot-2014-05-02-140959.png)
+
+Messing particularly likes using ggplot2 to create dot plots and scatter plots. In his personal blog, Messing writes about how these plots best represent every kind of data and how he uses R to execute them.
+
+The Facebook data science team uses R so ardently to visualize data that it even created a MOOC that teaches students what it knows. The MOOC’s course materials are available to everyone, even without registering for the course.
+
+Nesbitt agrees that R is strong in visualizations and graphics. "One of the things we like about R is that it can create beautiful graphics compared to, for example, SAS, which has very ugly, horribly ugly graphics," says Nesbitt.
+
+##TALENT IS EVERYWHERE
+
+In school, data scientist Casey Herron studied statistics and came to Revolution Analytics with an already intimate understanding of R. Having used R as an undergraduate, she continued using it in her master's program and when she moved into her first job after graduate school, as a statistician. She has now been at Revolution Analytics for 10 months.
+
+"I think the number one value to businesses [in using R] is access to talent," says Smith. "So many businesses now are doing much more with data, especially with the big data revolution and doing much more with analytics. And because they’re hiring people coming out of school. They know R already."
+
+Data scientists like Herron have commonly spent years in college, coding in R. "That’s a typical story that kind of led the company to be founded. We saw, way back in 2007, just how R had taken over academia. Everyone that was studying statistics, or machine learning, or what we, today, call data science was doing it in R," Smith says.
+
+DataSong’s Nesbitt is also a statistician by training. "SAS was just kind of used in industry, for whatever reason. I have an academic background, and a lot of other people who are coming out of academic backgrounds are very trained in R," Nesbitt says.
+
+She adds, "The job applicant pool is already trained in this language, which is a huge advantage of trying to use it in industry, too."
+
