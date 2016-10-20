@@ -1,0 +1,77 @@
+---
+title: "Task 5"
+author: "Greta Lauruskaite"
+date: '2016 m rugsejis 22 d'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(prob)
+```
+
+## Issukis
+
+Atlikite Monte-Carlo modeliavima sugeneruodami S atsitiktinio dydzio nepriklausomas realizacijas S1, S2, ..., Sn. Cia n=10^5.
+
+```{r }
+n <- 10^5
+S <- replicate(n, sum(sample(1:6, 3, replace=TRUE)))
+head(S)
+```
+
+2. Raskite teorini S skirstini, t.y. kiekvienai galimai S reiksmei raskite pasirodymo tikimybe.
+
+```{r } 
+St <- rolldie(3, nsides = 6, makespace = TRUE)
+St <- addrv(St, sum = X1 + X2 + X3)
+tik_teor <- marginal(St, vars="sum")
+tik_teor
+```
+
+3. Is sugeneruotos imties, padarykite santykiniu dazniu lentele ir gautas reiksmes palyginkite su teorinemis tikimybemis. Palyginimui pateikite grafika ir lentele, taip, kad butu patogu lyginti gautus rezultatus.
+
+Lentele:
+
+```{r }
+tik_e <- table(S)/n
+cbind(as.data.frame(tik_e), tik_teor)
+```
+
+Grafikas:
+
+```{r }
+plot(tik_e, xlab = "Suma", ylab = "Tikimybe")
+points(tik_teor, col = 2)
+```
+
+4. Suskaiciuokite teorini S vidurki ir dispersija. Padarykite grafikus, kuriuose matytusi, kaip didejant n minetu charakteristiku ivertiniai arteja i teorines reiksmes.
+
+Teorinis vidurkis ir dispersija:
+
+```{r }
+teor_vid <- sum(tik_teor$probs * tik_teor$sum)
+teor_vid
+```
+
+```{r }
+varS <- sum(tik_teor$probs * (tik_teor$sum-teor_vid)^2)
+varS
+```
+
+Grafikai:
+
+```{r }
+plot(cumsum(S)/1:n, type="l", xlab="n", ylab = "S / n", main="Vidurkio artejimas i teorini", ylim = c(10,11))
+abline(h=teor_vid, col=2)
+```
+
+```{r }
+a=S*0
+for(i in 1:10000){
+  a[i]=var(S[1:i])
+}
+
+plot(a[1:10000], type="l", xlab="n", ylab="varS", main="Dispersijos artėjimas į teorinę")
+abline(h=varS, col=2)
+```
