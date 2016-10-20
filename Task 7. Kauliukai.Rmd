@@ -1,0 +1,31 @@
+---
+title: "Task 7"
+author: "Greta Lauruskaite"
+date: '2016 m rugsejis 30 d'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(prob)
+```
+
+##KAULIUKAI
+
+SALYGA: Du zaidejai zaidzia toki zaidima. Pirmasis zaidejas meta tris kauliukus ir fiksuoja iskritusiu tasku suma. Antrasis zaidejas ridena du kauliukus ir skaiciuoja iskritusiu tasku suma. Laimi tas zaidejas, kurio tasku suma yra didesne. Jeigu tasku sumos yra lygios, tai eksperimentas kartojamas is naujo (ir taip kartojama tol, kol galiausiai nustatomas laimetojas). 
+
+* Kokia tikimybe laimeti pirmajam zaidejui?
+
+```{r }
+n = 10^4
+S1 <- replicate(n, sum(sample(1:6, 3, replace = TRUE)))
+S2 <- replicate(n, sum(sample(1:6, 2, replace = TRUE)))
+# Sugeneruojam dvi imtis kiekvienam zaidejui
+laimipirmas = sum((S1>S2)==TRUE)
+kartojimas = sum((S1==S2)==TRUE)
+# Generuojamos funkcijos, kai laimes pirmas zaidejas arba bus kartojamas bandymas
+tikimybe <- laimipirmas/(n - kartojimas)
+tikimybe
+# Sugeneruojama tikimybe, kad laimes pirmas zaidejas
+```
+

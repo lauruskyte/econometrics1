@@ -1,0 +1,44 @@
+---
+title: "Task 7. Moneta"
+author: "Greta Lauruskaite"
+date: "2016 m Spalio 7 d"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##MONETA
+
+SALYGA: Tarkime metama moneta. Jeigu iskrenta herbas, tai laimite 12 EUR. Jeigu skaicius, tai pralosiate 10 EUR. Bus zaidziama 100 kartu ir gauti rezultatai sumuojami. 
+
+```{r }
+n = 100
+F <- function(n){sum(sample(c(-10, 12), size = n, replace = TRUE))}
+#Sugeneruojam funkcija, kuri po 100 metimu suskaiciuoja gauta laimejima
+```
+
+* Kokia tikimybe jums tureti teigiama balansa po 100 kartu? 
+
+```{r }
+prob <- sapply(n, function(ni) mean(replicate(n, F(ni))>0))
+prob
+# Sugeneruojam tikimybe, kad balansas po 100 metimu bus teigiamas
+```
+
+* Koks balanso pasikliautinis 95% intervalas? 
+
+```{r }
+int <- sapply(n, function(ni) quantile(replicate(n, F(ni)), probs = c(0.025, 0.975)))
+colnames(int) <- c(n)
+int
+# Isspausdiname intervalus, i kuriuos pateks 95% reiksmiu, matricos pavidale
+```
+
+* Kaip atrodo balanso tankis?
+
+```{r }
+plot(density(replicate(n, F(n))), xlab = "Reiksmes", ylab = "Tankis", main = "Balanso tankis", lwd = "4", col = "5")
+# Nubraizome balanso tanki po 100 metimu
+```
