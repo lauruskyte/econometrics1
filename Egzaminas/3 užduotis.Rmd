@@ -1,0 +1,51 @@
+---
+title: "3 užduotis"
+author: "Greta Lauruškaitė"
+date: '2017 m sausio 20 d '
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## EGZAMINAS
+### 3 UŽDUOTIS
+
+1. Duomenų apžvalga ir paruošimas.
+ 
+ (a) Nuskaitykime duomenų masyvą:
+
+```{r}
+data <- read.csv("C:/Users/Greta/Desktop/Praktine ekonometrija/Mano GitHub/econometrics1/Egzaminas/data.csv", header = TRUE, stringsAsFactors = FALSE)
+head(data) # Parodome duomenų pradžią
+```
+
+ (b) Paruoškite duomenis naudojimui:
+
+```{r}
+data <- data[-c(6, 202)]  # Išmetame eilutes, kuriose yra trūkstamos reikšmės "MISSING"
+```
+* Kaip matome išmestos dvi eilutės, visos kitos su pilnais duomenimis (liko 351 eilutė)
+
+```{r}
+head(sapply(data[-1,], class))  # Patikriname failo duomenų tipus
+```
+
+ (c) Pateikime trumpą kintamųjų apžvalgą:
+ 
+```{r}
+summary(data[-1,])
+```
+
+ (d) Duomenų masyvą suskaidom į du atskirus ir nesikertančius masyvus:
+ 
+```{r}
+trainSet <- split(data, sample(data, )
+```
+
+```
+
+ŠALTINIAI: 
+* http://stackoverflow.com/questions/12328056/how-do-i-delete-rows-in-a-data-frame
+

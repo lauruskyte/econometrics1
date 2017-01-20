@@ -1,0 +1,48 @@
+---
+title: "1 užduotis"
+author: "Greta Lauruškaitė"
+date: '2017 m sausis 20 d '
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## EGZAMINAS
+### 1 UŽDUOTIS
+
+Susigeneruojam 'x' su pateiktu kodu: 
+
+```{r}
+set.seed(1234567890)
+x <- rnorm(5000)
+```
+
+(a) Surandame 'x' vidurkio ir standartinio nuokrypio įverčius:
+
+```{r}
+mean(x)  # Vidurkis
+sd(x) # St. nuokrypis
+```
+
+(b) Rasim 'x' išskirtis. 
+
+```{r}
+intervalas <- ((x > mean(x) - 3*sd(x))&(x< mean(x) + 3*sd(x)))  # Susigeneruojam intervalą 
+isskirtis <- x[!intervalas] 
+isskirtis  # Tokias reikšmes išmetėme
+indeksai <- which(x %in% isskirtis)
+indeksai  # Surandame indeksus išmestųjų reikšmių
+```
+
+(c) Pašalinkim 'x' išskirtis ir nubrėžkim atnaujinto 'x' histogramą: 
+
+```{r}
+newx <- x[intervalas]  # Paliekam x'ui tik intervale esančias reikšmes
+hist(newx)
+```
+
+ŠALTINIAI: 
+* https://stat.ethz.ch/pipermail/r-help/2003-February/030121.html
+* Ankstesni darbai
